@@ -14,8 +14,6 @@ export const rutaEsAbsoluta = (rutaabsoluta) =>{
  export const recorrerCarpeta = () =>{
 
  };
-
  export const archivoEsMd = () =>{
 
-    
  };
