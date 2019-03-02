@@ -1,35 +1,34 @@
-import {rutaEsAbsoluta, transformarAabsoluta, rutaEsArchivo, recorrerCarpeta, archivoEsMd} from '../SRC/md-links/UTILS/path.js'
-describe('rutaEsAbsoluta', () => {
+import {checkIfRouteIsAbsolute, transformRelativePath, recorrerCarpeta, archivoEsMd} from '../src/md-links/utils/path.js'
+describe('checkIfRouteIsAbsolute', () => {
     it('Debería ser una función', () => {
-      expect(typeof rutaEsAbsoluta).toBe('function');
+      expect(typeof checkIfRouteIsAbsolute).toBe('function');
     });
     it('Debería retornar true si la ruta es absoluta', () => {
-      expect(rutaEsAbsoluta('C:/foo/..')).toBe(true);
+      expect(checkIfRouteIsAbsolute('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\src\\md-links\\index.js')).toBe(true);
+    });
+    it('Debería retornar false si la ruta no es absoluta', () => {
+      expect(checkIfRouteIsAbsolute('./src/md-links/index.js')).toBe(false);
     })
   });
 
-describe('transformarAabsoluta', () => {
+describe('transformRelativePath', () => {
   it('Debería ser una función', () => {
-    expect(typeof transformarAabsoluta).toBe('function');
+    expect(typeof transformRelativePath).toBe('function');
   });
   it('Debería retornar la ruta transformada en absoluta', () => {
-    expect(transformarAabsoluta('./SRC/md-links/index.js')).toBe('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\SRC\\md-links\\index.js')
+    expect(transformRelativePath('./src/md-links/index.js')).toBe('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\src\\md-links\\index.js')
   });
 });  
-describe('rutaEsArchivo', () => {
-  it('Debería ser una función', () => {
-    expect(typeof rutaEsArchivo).toBe('function');
-  });
-});
-describe('recorrerCarpeta', () => {
-  it('Debería ser una función', () => {
-    expect(typeof recorrerCarpeta).toBe('function');
-  });
-});
-describe('archivoEsMd', () => {
-  it('Debería ser una función', () => {
-    expect(typeof archivoEsMd).toBe('function');
-  });
-});
+
+// describe('recorrerCarpeta', () => {
+//   it('Debería ser una función', () => {
+//     expect(typeof recorrerCarpeta).toBe('function');
+//   });
+// });
+// describe('archivoEsMd', () => {
+//   it('Debería ser una función', () => {
+//     expect(typeof archivoEsMd).toBe('function');
+//   });
+// });
 
   

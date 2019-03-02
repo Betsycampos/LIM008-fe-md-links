@@ -1,19 +1,18 @@
 const path = require('path');
-export const rutaEsAbsoluta = (rutaabsoluta) =>{
+
+
+export const checkIfRouteIsAbsolute = (rutaabsoluta) =>{
     return path.isAbsolute(rutaabsoluta);
     
 };
- export const transformarAabsoluta = (rutaRelativa) =>{
+export const transformRelativePath = (rutaRelativa) =>{
     return path.resolve(rutaRelativa);
- };
+};
 
- export const rutaEsArchivo = () => {
+// //let archivo = 
+// export const recorrerCarpeta = () =>{
 
- };
+// };  
+// export const archivoEsMd = () =>{
 
- export const recorrerCarpeta = () =>{
-
- };
- export const archivoEsMd = () =>{
-
- };
+//  };
