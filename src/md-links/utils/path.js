@@ -1,12 +1,12 @@
 const path = require('path');
 
 
-export const checkIfRouteIsAbsolute = (rutaabsoluta) =>{
-    return path.isAbsolute(rutaabsoluta);
+export const checkIfRouteIsAbsolute = (myRoute) =>{
+    return path.isAbsolute(myRoute);
     
 };
-export const transformRelativePath = (rutaRelativa) =>{
-    return path.resolve(rutaRelativa);
+export const transformRelativePath = (myRoute) =>{
+    return path.resolve(myRoute);
 };
 
 // //let archivo = 
