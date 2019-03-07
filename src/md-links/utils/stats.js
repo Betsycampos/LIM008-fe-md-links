@@ -8,26 +8,29 @@ export const checkIfIsFile = (myRoute) => {
     return  fs.statSync(myRoute).isFile()
 };
 
+export const checkIfIsDirectory = (myRoute) => {
+    return fs.statSync(myRoute).isDirectory()
+}
+
+export const fileMd = (myRoute) => {
+   return path.extname(myRoute) === '.md';
+};
+
 //en caso la ruta sea de un directorio
-
-export const traverseIfDirectory = (myRoute) => {
+export const fileReturnMd = (myRoute) => {
     let collectionArrayPath = [];
-    // exec('pwd', (err, stdout, stderr) => {
-    //     console.log('hola ======== ',stdout);
-    //   })
     const files =  fs.readdirSync(myRoute);
-
     files.forEach(file => {
-        let newRoute = myRoute + '\\' + file;
-        let route = fs.statSync(newRoute);
-        if(route.isDirectory()){
+        let newRoute = path.join(myRoute, file);
+       // let route = fs.statSync(newRoute);
+        if(checkIfIsDirectory(newRoute)){
             collectionArrayPath = collectionArrayPath.concat(traverseIfDirectory(newRoute))
-        } else if( path.extname(newRoute) ===  '.md' ){
+        } else if(checkIfIsFile(newRoute) && fileMd(newRoute) ){
             collectionArrayPath.push(newRoute);
         }
     });
     return collectionArrayPath;
-}
+};
 console.log (traverseIfDirectory('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
 
 // export const extraerLosLinks = (arrRutasArchivos) => {
