@@ -7,19 +7,21 @@ const myMarked = require('marked');
 export const checkIfIsFile = (myRoute) => {
     return  fs.statSync(myRoute).isFile()
 };
-
+ 
+// en caso la ruta sea de un directorio
 export const checkIfIsDirectory = (myRoute) => {
     return fs.statSync(myRoute).isDirectory()
 }
 
+// seleccionando rutas que tengan archivos .md
 export const fileMd = (myRoute) => {
    return path.extname(myRoute) === '.md';
 };
 
-//en caso la ruta sea de un directorio
+// función de recursión
 export const fileReturnMd = (myRoute) => {
     let collectionArrayPath = [];
-    const files =  fs.readdirSync(myRoute);
+    const files =  fs.readdirSync(myRoute);//lee el directorio d ela ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
        // let route = fs.statSync(newRoute);
@@ -33,30 +35,29 @@ export const fileReturnMd = (myRoute) => {
 };
  //console.log (fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
 
-// export const extraerLosLinks = (arrRutasArchivos) => {
-//     const links = [];
-//     // console.log('holaa', arrRutasArchivos);
+//Función que extrae los links de mis archivos .md
+
+export const extractLinks = (myRoute) => {
+    const linksExtracted = [];
+    for(let i=0; i<myRoute.length; i++) {
+        let file = myRoute[i];
+        let readFile = fs.readFileSync(file, 'utf8');
+        const renderer = new myMarked.Renderer();
+        // console.log(readFile);
+        renderer.link = (href, title, text) => {
+            return linksExtracted.push({
+                href: href,
+                text: text,
+                file: file,
+            });
+        };
+        myMarked(readFile, { renderer: renderer });
+        
+    };
+    return linksExtracted;
+};
+// console.log(extractLinks(['C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md']));
+
+console.log(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')));
+
     
-//    /*  for(let i=0; i<arrRutasArchivos.length; i++) {
-//         let archivo = arrRutasArchivos[i]
-//         let leerArchivo = fs.readFileSync(archivo, 'utf8');
-//         const renderer = new myMarked.Renderer();
-//         //console.log(renderer);
-//         // console.log(renderer.link);
-//         renderer.link = (href, title, text) => {
-//            return links.push({
-//             href: href,
-//             text: text,
-//             file: archivo,
-//             });
-//         }; */
-//         // console.log(renderer.link)
-//         //myMarked(leerArchivo, { renderer: renderer });
-//     //}
-//     return links;
-//   }
-
-// // console.log(extraerLosLinks(datos));
-
-
-          
