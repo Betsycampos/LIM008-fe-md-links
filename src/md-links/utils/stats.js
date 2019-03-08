@@ -24,14 +24,14 @@ export const fileReturnMd = (myRoute) => {
         let newRoute = path.join(myRoute, file);
        // let route = fs.statSync(newRoute);
         if(checkIfIsDirectory(newRoute)){
-            collectionArrayPath = collectionArrayPath.concat(traverseIfDirectory(newRoute))
+            collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
         } else if(checkIfIsFile(newRoute) && fileMd(newRoute) ){
             collectionArrayPath.push(newRoute);
         }
     });
     return collectionArrayPath;
 };
-console.log (traverseIfDirectory('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
+ //console.log (fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
 
 // export const extraerLosLinks = (arrRutasArchivos) => {
 //     const links = [];

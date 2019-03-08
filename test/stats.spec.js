@@ -1,4 +1,4 @@
-import {checkIfIsFile, traverseIfDirectory} from '../src/md-links/utils/stats.js'
+import {checkIfIsFile, checkIfIsDirectory, fileReturnMd} from '../src/md-links/utils/stats.js'
 describe('checkIfIsFile', () => {
     it('Debería ser una función', () => {
       expect(typeof checkIfIsFile).toBe('function');
@@ -8,15 +8,24 @@ describe('checkIfIsFile', () => {
     });
   }); 
 
-describe('traverseIfDirectory', () => {
+  describe('checkIfIsDirectory', () => {
+    it('Debería ser una función', () => {
+      expect(typeof checkIfIsDirectory).toBe('function');
+    });
+    it('Debería retornar false si la ruta no es un directorio', () => {
+      expect(checkIfIsDirectory('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\src\\md-links\\index.js')).toBe(false);
+    });
+  }); 
+
+describe('fileReturnMd', () => {
   it('Debería ser una función', () => {
-    expect(typeof traverseIfDirectory).toBe('function');
+    expect(typeof fileReturnMd).toBe('function');
   });
     it('debería retornar un array de strings', () => {
-        expect(typeof traverseIfDirectory('./prueba')).toBe('object')
+        expect(typeof fileReturnMd('./prueba')).toBe('object')
     });
     it('debería mostrar el array de strings de los archivos md', () => {
-        expect(traverseIfDirectory('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')).toEqual([ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\interno\\read.md',
+        expect(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')).toEqual([ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\interno\\read.md',
         'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' ])
     });
 });
