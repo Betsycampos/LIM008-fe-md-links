@@ -1,4 +1,14 @@
-import {checkIfIsFile, checkIfIsDirectory, fileReturnMd} from '../src/md-links/utils/stats.js'
+import {checkIfIsFile, checkIfIsDirectory, fileReturnMd, extractLinks} from '../src/md-links/utils/stats.js'
+const arrObjtLinks = [ 
+  { href: 'https://es.wikipedia.org/wiki/Markdown',
+    text: 'Markdown',
+    file:
+     'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+  { href: 'https://nodejs.org/',
+    text: 'Node.js',
+    file:
+     'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' } 
+];
 describe('checkIfIsFile', () => {
     it('Debería ser una función', () => {
       expect(typeof checkIfIsFile).toBe('function');
@@ -29,3 +39,11 @@ describe('fileReturnMd', () => {
         'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' ])
     });
 });
+ describe('extractLinks', () => {
+   it('Debería ser una función', () => {
+     expect(typeof extractLinks).toBe('function');
+   });
+   it('debería retornar un array de objetos con las propiedades href, text, file  de los links extraidos', () => {
+     expect(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'))).toEqual(arrObjtLinks);
+   });
+ });
