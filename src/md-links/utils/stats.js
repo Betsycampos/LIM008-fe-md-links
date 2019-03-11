@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const myMarked = require('marked'); 
+// const fetch = require('node-fetch');
 
 // en caso la ruta sea de un archivo
 export const checkIfIsFile = (myRoute) => {
@@ -59,5 +60,3 @@ export const extractLinks = (myRoute) => {
 // console.log(extractLinks(['C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md']));
 
 console.log(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')));
-
-    
