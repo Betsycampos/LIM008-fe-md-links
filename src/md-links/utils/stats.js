@@ -43,8 +43,7 @@ file:
 
 export const brokenStats = (arrObjt) => {
         const arrayBroken = arrObjt.filter(link => link.stat === 'FAIL').length;
-        console.log(arrayBroken);
-        return arrayBroken.length;
+        return arrayBroken;
 };
 
 console.log(brokenStats([ 

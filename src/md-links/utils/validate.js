@@ -40,4 +40,4 @@ file:
 { href: 'https://nodejsorg/',
 text: 'Node.js',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' } ]).then(resp => console.log(resp)).catch(err => console.log(err))
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' } ]).then(response => console.log(response)).catch(err => console.log(err))
