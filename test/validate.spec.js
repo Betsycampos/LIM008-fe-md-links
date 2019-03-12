@@ -11,7 +11,7 @@ file:
 { href: 'https://nodejsorg/',
 text: 'Node.js',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' }
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
 ];
 
 const arrObjt =[ 
@@ -33,10 +33,10 @@ const arrObjt =[
       code: 'No es una URL válida',
       stat: 'FAIL' }
   ];
+
+   const error = [{code: 404, href: 'https://developer.mozilla.org/es/docs/W', stat: 'FAIL'}];
+   const rep = [ {code: 404, href: 'https://developer.mozilla.org/es/docs/W', stat: 'FAIL'}];
  
-  const error = [
-    'https://developer.mozilla.org/es/docs/W'
-  ]
 describe('validateLinks', () => {
     it('Debería ser una función', () => {
         expect(typeof validateLinks).toBe('function');
@@ -47,4 +47,10 @@ describe('validateLinks', () => {
         done();
      });
      });
+    it('Debería retornar FAIL si la URL no es válida', (done) => {
+      validateLinks(error).then((resolve) => {
+        expect(resolve).toEqual(rep);
+        done()
+      });
+    }); 
 });
