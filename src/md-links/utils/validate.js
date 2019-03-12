@@ -7,10 +7,10 @@ const fetch = require('node-fetch');
 
 // };
 
-export const validarLinks = arrayObjetos => {
-    const arrayPromesas = arrayObjetos.map(links => new Promise((resolve, reject) => {
-        const validarUrls = fetch(links.href)
-        validarUrls.then(response => {
+export const validateLinks = (arrObjt) => {
+    const arrayPromesas = arrObjt.map(links => new Promise((resolve, reject) => {
+        const validateUrls = fetch(links.href)
+        validateUrls.then(response => {
             if(response.status >= 200 && response.status < 400){
                             links.code = response.status;
                             links.stat = 'OK'
@@ -27,30 +27,9 @@ export const validarLinks = arrayObjetos => {
         })
     }))
     return Promise.all(arrayPromesas)
-}
-
-
-
-//me debe eretornar un buffer por lo tanto tener que averiguar sobre eso.
-// export const validarLinks = (arrayObjetos) => {
-//     const arrObj = arrayObjetos;
-//     const arrPromesas = arrObj.map(links => new Promise((resolve,reject)=> {
-//     fetch(links.href)
-//    .then((response)=>{
-//         if(response.status >= 200 && response.status < 400){
-//             links.code = response.status;
-//             links.stat = 'OK';
-//         }else if(response.status >= 400 && response.status < 600){
-//             links.code = response.status;
-//             links.stat = 'FAIL';
-//         }
-//         console.log(arrPromesas);
-//    }))
-// })
-//     return Promise.all(arrPromesas)
-//  }
+};
  
-validarLinks([ { href: 'https://es.wikipedia.org/wiki/Markdown',
+validateLinks([ { href: 'https://es.wikipedia.org/wiki/Markdown',
 text: 'Markdown',
 file:
  'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },

@@ -1,4 +1,4 @@
-import {checkIfRouteIsAbsolute, transformRelativePath, recorrerCarpeta, archivoEsMd} from '../src/md-links/utils/path.js'
+import {checkIfRouteIsAbsolute, transformRelativePath} from '../src/md-links/utils/path.js'
 describe('checkIfRouteIsAbsolute', () => {
     it('Debería ser una función', () => {
       expect(typeof checkIfRouteIsAbsolute).toBe('function');

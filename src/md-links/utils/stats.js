@@ -1,62 +1,68 @@
-const path = require('path');
-const fs = require('fs');
-const { exec } = require('child_process');
-const myMarked = require('marked'); 
-// const fetch = require('node-fetch');
+// import {validateLinks} from '../src/md-links/utils/validate.js'
+export const linksUnique = (arrObjt) => {
+    const newSetLinks = [...new Set(arrObjt.map((links) => links.href))];
 
-// en caso la ruta sea de un archivo
-export const checkIfIsFile = (myRoute) => {
-    return  fs.statSync(myRoute).isFile()
+    return newSetLinks.length;
+  };
+console.log(linksUnique([ { href: 'https://es.wikipedia.org/wiki/Markdown',
+text: 'Markdown',
+file:
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+{ href: 'https://nodejs.org/',
+text: 'Node.js',
+file:
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+{ href: 'https://nodejsorg/',
+text: 'Node.js',
+file:
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+ { href: 'https://nodejs.org/',
+ text: 'Node.js',
+ file:
+  'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' }]));
+export const totalStast = (arrObjt) => {
+    const arrObjtTotal = arrObjt.length
+    return arrObjtTotal
 };
- 
-// en caso la ruta sea de un directorio
-export const checkIfIsDirectory = (myRoute) => {
-    return fs.statSync(myRoute).isDirectory()
-}
+console.log(totalStast([ { href: 'https://es.wikipedia.org/wiki/Markdown',
+text: 'Markdown',
+file:
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+{ href: 'https://nodejs.org/',
+text: 'Node.js',
+file:
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+{ href: 'https://nodejsorg/',
+text: 'Node.js',
+file:
+ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+ { href: 'https://nodejs.org/',
+ text: 'Node.js',
+ file:
+  'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' }]));
 
-// seleccionando rutas que tengan archivos .md
-export const fileMd = (myRoute) => {
-   return path.extname(myRoute) === '.md';
+export const brokenStats = (arrObjt) => {
+        const arrayBroken = arrObjt.filter(link => link.stat === 'FAIL').length;
+        console.log(arrayBroken);
+        return arrayBroken.length;
 };
 
-// función de recursión
-export const fileReturnMd = (myRoute) => {
-    let collectionArrayPath = [];
-    const files =  fs.readdirSync(myRoute);//lee el directorio d ela ruta
-    files.forEach(file => {
-        let newRoute = path.join(myRoute, file);
-       // let route = fs.statSync(newRoute);
-        if(checkIfIsDirectory(newRoute)){
-            collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
-        } else if(checkIfIsFile(newRoute) && fileMd(newRoute) ){
-            collectionArrayPath.push(newRoute);
-        }
-    });
-    return collectionArrayPath;
-};
- //console.log (fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
-
-//Función que extrae los links de mis archivos .md
-
-export const extractLinks = (myRoute) => {
-    const linksExtracted = [];
-    for(let i=0; i<myRoute.length; i++) {
-        let file = myRoute[i];
-        let readFile = fs.readFileSync(file, 'utf8');
-        const renderer = new myMarked.Renderer();
-        // console.log(readFile);
-        renderer.link = (href, title, text) => {
-            return linksExtracted.push({
-                href: href,
-                text: text,
-                file: file,
-            });
-        };
-        myMarked(readFile, { renderer: renderer });
-        
-    };
-    return linksExtracted;
-};
-// console.log(extractLinks(['C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md']));
-
-console.log(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')));
+console.log(brokenStats([ 
+    { href: 'https://es.wikipedia.org/wiki/Markdown',
+      text: 'Markdown',    file:
+       'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+      code: 200,
+      stat: 'OK' },
+    { href: 'https://nodejs.org/',
+      text: 'Node.js',
+      file:
+       'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+      code: 200,
+      stat: 'OK' },
+    { href: 'https://nodejsorg/',
+      text: 'Node.js',
+      file:
+       'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+      code: 'No es una URL válida',
+      stat: 'FAIL' }
+  ]));
