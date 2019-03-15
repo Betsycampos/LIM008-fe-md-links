@@ -57,6 +57,7 @@ export const extractLinks = (myRoute) => {
     };
     return linksExtracted;
 };
-console.log(extractLinks(['C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md']));
+
+// console.log(extractLinks(['C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md']));
 
 // console.log(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')));
