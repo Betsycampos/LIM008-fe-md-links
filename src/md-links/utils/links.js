@@ -22,6 +22,9 @@ export const fileMd = (myRoute) => {
 // función de recursión
 export const fileReturnMd = (myRoute) => {
     let collectionArrayPath = [];
+    if (fs.statSync(myRoute).isDirectory() === false && path.extname(myRoute) === '.md') {
+        collectionArrayPath.push(myRoute);
+      } else {
     const files =  fs.readdirSync(myRoute);//lee el directorio d ela ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
@@ -32,6 +35,7 @@ export const fileReturnMd = (myRoute) => {
             collectionArrayPath.push(newRoute);
         }
     });
+  }
     return collectionArrayPath;
 };
  //console.log (fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));

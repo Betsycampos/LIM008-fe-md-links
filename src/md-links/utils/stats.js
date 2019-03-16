@@ -42,7 +42,7 @@ export const totalStast = (arrObjt) => {
 //   'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' }]));
 
 export const brokenStats = (arrObjt) => {
-        const arrayBroken = arrObjt.filter(link => link.stat === 'FAIL').length;
+        const arrayBroken = arrObjt.filter(link => link.statusText === 'FAIL').length;
         return arrayBroken;
 };
 

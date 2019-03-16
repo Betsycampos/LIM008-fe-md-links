@@ -12,6 +12,10 @@
   "bin": {
     "md-links": "lib/cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Betsycampos/md-links.git"
+  },
   "scripts": {
     "eslint": "eslint --ext .js src/ test/",
     "test": "jest --coverage",
