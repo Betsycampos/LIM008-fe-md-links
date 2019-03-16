@@ -1,14 +1,17 @@
 {
-  "name": "social-network",
+  "name": "md-links",
   "version": "1.0.0",
-  "description": "Social Network @ Laboratoria",
-  "main": "src/index.html",
+  "description": "MarkDown-Links @ Laboratoria",
+  "main": "lib/md-links/index.js",
   "keywords": [
     "javascript",
     "npm",
     "jest"
   ],
   "license": "MIT",
+  "bin": {
+    "md-links": "lib/cli.js"
+  },
   "scripts": {
     "eslint": "eslint --ext .js src/ test/",
     "test": "jest --coverage",

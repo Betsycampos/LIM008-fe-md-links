@@ -43,12 +43,13 @@ describe('fileReturnMd', () => {
         'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' ])
     });
 });
-console.log(fileReturnMd);
+
  describe('extractLinks', () => {
    it('Debería ser una función', () => {
      expect(typeof extractLinks).toBe('function');
    });
    it('debería retornar un array de objetos con las propiedades href, text, file  de los links extraidos', () => {
-     expect(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'))).toEqual(arrObjtLinks);
+     expect(extractLinks([ 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\interno\\read.md',
+     'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' ])).toEqual(arrObjtLinks);
    });
  });

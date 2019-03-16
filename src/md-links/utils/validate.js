@@ -13,20 +13,20 @@ export const validateLinks = (arrObjt) => {
         .then(response => {
             if(response.status >= 200 && response.status < 400){
                             links.code = response.status;
-                            links.stat = 'OK'
+                            links.statusText = 'OK'
                             resolve(links)
                         }else {
                             links.code = response.status;
-                            links.stat = 'FAIL'
+                            links.statusText = 'FAIL'
                             resolve(links)
                         }     
         }).catch(err => {
             links.code = 'No es una URL válida';
-            links.stat = 'FAIL'
+            links.statusText = 'FAIL'
             resolve(links)
         })
     }))
-    return Promise.all(arrayPromesas)
+    return Promise.all(arrayPromesas);
 };
  
 // validateLinks([ { href: 'https://es.wikipedia.org/wiki/Markdown',
