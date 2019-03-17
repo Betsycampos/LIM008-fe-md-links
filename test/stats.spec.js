@@ -41,7 +41,7 @@ text: 'Node.js',
 file:
 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
 code: 'No es una URL válida',
-stat: 'FAIL' }
+statusText: 'FAIL' }
 
 ]
 describe('linksUnique', () => {

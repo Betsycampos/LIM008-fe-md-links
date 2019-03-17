@@ -25,7 +25,7 @@ export const fileReturnMd = (myRoute) => {
     if (fs.statSync(myRoute).isDirectory() === false && path.extname(myRoute) === '.md') {
         collectionArrayPath.push(myRoute);
       } else {
-    const files =  fs.readdirSync(myRoute);//lee el directorio d ela ruta
+    const files =  fs.readdirSync(myRoute);//lee el directorio de la ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
        // let route = fs.statSync(newRoute);
