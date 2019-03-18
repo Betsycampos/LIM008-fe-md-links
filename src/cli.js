@@ -27,7 +27,7 @@ if (options1 === '--stats' && options2 === '--validate') {
     .then(resp => console.log(`Total: ${totalStast(resp)} \nUnique: ${linksUnique(resp)}`))
     .catch(err => console.log(err));
 } else {
-  mdLinks(path)
+  mdLinks(path, options)
     .then(resp => resp.forEach(objectReturn => { console.log(objectReturn.file, objectReturn.href, objectReturn.text)}))
     .catch(err => console.log(err));
 }
