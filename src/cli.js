@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const [,, ...args] = process.argv;
-console.log(`hello world ${args}`);
 
 import {mdLinks} from './md-links/index.js';
 import {linksUnique, totalStast, brokenStats} from './md-links/utils/stats.js';

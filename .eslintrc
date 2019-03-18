@@ -36,5 +36,6 @@
       "no-array-constructor": 1,
       "no-const-assign": "error",
       "no-var": "error"
+  
     }
-   }
+}
