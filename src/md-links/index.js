@@ -1,4 +1,4 @@
-import {checkIfRouteIsAbsolute} from './utils/path.js';
+import {checkIfRouteIsAbsolute, transformRelativePath} from './utils/path.js';
 import {fileReturnMd, extractLinks} from './utils/links.js';
 import {validateLinks} from './utils/validate.js';
 // lo que tengo que considerar en esta función es
