@@ -38,19 +38,6 @@ const arrObjtLinks = [
     file:
        'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' } 
 ];
-const error = [ { href: 'https://nodejsorg/',
-  text: 'Node.js',
-  file:
-'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
-  code: 'No es una URL válida',
-  statusText: 'FAIL' } ];
-const rep = [ { href: 'https://nodejsorg/',
-  text: 'Node.js',
-  file:
-'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
-  code: 'No es una URL válida',
-  statusText: 'FAIL' } ];
-
 describe('mdLinks', () => {
   it('Debería ser una función', () => {
     expect(typeof mdLinks).toBe('function');
@@ -69,11 +56,4 @@ describe('mdLinks', () => {
         done();
       });
   }); 
-//   it('Debería retornar un error y resolverlo', (done) => {
-//     mdLinks(error)
-//       .then((resolve) => {
-//         expect(resolve).toEqual(rep);
-//         done();
-//       });
-//   }); 
 });
