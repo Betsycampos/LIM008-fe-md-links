@@ -1,8 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { exec } = require('child_process');
 const myMarked = require('marked'); 
-// const fetch = require('node-fetch');
 
 // en caso la ruta sea de un archivo
 export const checkIfIsFile = (myRoute) => {
@@ -28,7 +26,6 @@ export const fileReturnMd = (myRoute) => {
     const files =  fs.readdirSync(myRoute);//lee el directorio de la ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
-       // let route = fs.statSync(newRoute);
         if(checkIfIsDirectory(newRoute)){
             collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
         } else if(checkIfIsFile(newRoute) && fileMd(newRoute) ){
@@ -38,7 +35,6 @@ export const fileReturnMd = (myRoute) => {
   }
     return collectionArrayPath;
 };
- //console.log (fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
 
 //Función que extrae los links de mis archivos .md
 
@@ -48,7 +44,6 @@ export const extractLinks = (myRoute) => {
         let file = myRoute[i];
         let readFile = fs.readFileSync(file, 'utf8');
         const renderer = new myMarked.Renderer();
-        // console.log(readFile);
         renderer.link = (href, title, text) => {
             return linksExtracted.push({
                 href: href,
@@ -61,7 +56,3 @@ export const extractLinks = (myRoute) => {
     };
     return linksExtracted;
 };
-
-// console.log(extractLinks(['C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md']));
-
-// console.log(extractLinks(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba')));

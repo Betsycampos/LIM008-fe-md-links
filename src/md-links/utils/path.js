@@ -8,11 +8,3 @@ export const checkIfRouteIsAbsolute = (myRoute) =>{
 export const transformRelativePath = (myRoute) =>{
     return path.resolve(myRoute);
 };
-
-// //let archivo = 
-// export const recorrerCarpeta = () =>{
-
-// };  
-// export const archivoEsMd = () =>{
-
-//  };
