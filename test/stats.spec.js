@@ -1,45 +1,46 @@
-import {linksUnique, totalStast, brokenStats} from '../src/md-links/utils/stats.js'
+import {linksUnique, totalStast, brokenStats} from '../src/md-links/utils/stats.js';
+const path = require('path');
 const arrayObject = [ 
 { href: 'https://es.wikipedia.org/wiki/Markdown',
 text: 'Markdown',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+path.resolve('./prueba/readme.md') },
 { href: 'https://nodejs.org/',
 text: 'Node.js',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+path.resolve('./prueba/readme.md') },
 { href: 'https://nodejsorg/',
 text: 'Node.js',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+path.resolve('./prueba/readme.md') },
  { href: 'https://nodejs.org/',
  text: 'Node.js',
  file:
-  'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' }
+ path.resolve('/prueba/readme.md') }
 ];
 const arrayObject1 = [
 { href: 'https://es.wikipedia.org/wiki/Markdown',
 text: 'Markdown',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+path.resolve('./prueba/readme.md') },
 { href: 'https://nodejs.org/',
 text: 'Node.js',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+path.resolve('./prueba/readme.md') },
 { href: 'https://nodejsorg/',
 text: 'Node.js',
 file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+ path.resolve('./prueba/readme.md') },
 { href: 'https://nodejs.org/',
  text: 'Node.js',
  file:
-  'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' }
+  path.resolve('./prueba/readme.md') }
 ];
 const arrayObject2 = [
 { href: 'https://nodejsorg/',
 text: 'Node.js',
 file:
-'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+path.resolve('./prueba/readme.md'),
 code: 'No es una URL válida',
 statusText: 'FAIL' }
 

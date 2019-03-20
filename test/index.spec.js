@@ -1,25 +1,23 @@
 import { mdLinks } from '../src/md-links/index.js';
 const path = 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba';
+const paths = require('path');
 const options = {
   validate: false,
 };
 const arrLinksValidate = [ 
   { href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+    file:  paths.resolve('./prueba/readme.md'),
     code: 200,
     statusText: 'OK' },
   { href: 'https://nodejs.org/',
     text: 'Node.js',
-    file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+    file: paths.resolve('./prueba/readme.md'),
     code: 200,
     statusText: 'OK' },
   { href: 'https://nodejsorg/',
     text: 'Node.js',
-    file:
- 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md',
+    file: paths.resolve('./prueba/readme.md'),
     code: 'No es una URL válida',
     statusText: 'FAIL' } 
 ];
@@ -27,16 +25,13 @@ const arrLinksValidate = [
 const arrObjtLinks = [ 
   { href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file:
-       'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+    file: paths.resolve('./prueba/readme.md') },
   { href: 'https://nodejs.org/',
     text: 'Node.js',
-    file:
-       'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' },
+    file: paths.resolve('./prueba/readme.md') },
   { href: 'https://nodejsorg/',
     text: 'Node.js',
-    file:
-       'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba\\readme.md' } 
+    file: paths.resolve('./prueba/readme.md') } 
 ];
 describe('mdLinks', () => {
   it('Debería ser una función', () => {
