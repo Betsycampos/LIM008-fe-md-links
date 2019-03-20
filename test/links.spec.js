@@ -1,4 +1,4 @@
-import {checkIfIsFile, checkIfIsDirectory, fileReturnMd, fileMd, extractLinks} from '../src/md-links/utils/links.js';
+import {checkIfIsFile, checkIfIsDirectory, fileReturn, fileMd, extractLinks} from '../src/md-links/utils/links.js';
 const path = require('path');
 const arrObjtLinks = [ 
 { href: 'https://es.wikipedia.org/wiki/Markdown',
@@ -42,15 +42,15 @@ describe('checkIfIsFile', () => {
     });
   }); 
 
-describe('fileReturnMd', () => {
+describe('fileReturn', () => {
   it('Debería ser una función', () => {
-    expect(typeof fileReturnMd).toBe('function');
+    expect(typeof fileReturn).toBe('function');
   });
     it('debería retornar un array de strings', () => {
-        expect(typeof fileReturnMd('./prueba')).toBe('object')
+        expect(typeof fileReturn('./prueba')).toBe('object')
     });
     it('debería mostrar el array de strings de los archivos', () => {
-        expect(fileReturnMd(path.resolve('./prueba'))).toEqual(arrObjtLinks1);
+        expect(fileReturn(path.resolve('./prueba'))).toEqual(arrObjtLinks1);
     });
 });
 

@@ -18,7 +18,7 @@ export const checkIfIsDirectory = (myRoute) => {
 // };
 
 // función de recursión
-export const fileReturnMd = (myRoute) => {
+export const fileReturn = (myRoute) => {
     let collectionArrayPath = [];
     if (checkIfIsFile(myRoute)){
         collectionArrayPath.push(myRoute);
@@ -26,16 +26,16 @@ export const fileReturnMd = (myRoute) => {
     const files =  fs.readdirSync(myRoute);//lee el directorio de la ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
-            collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
+            collectionArrayPath = collectionArrayPath.concat(fileReturn(newRoute))
     });
   };
     return collectionArrayPath;
 };
 
  export const fileMd = (myRoute) => {
-    return fileReturnMd(myRoute).filter((file => path.extname(file) === '.md'));
+    return fileReturn(myRoute).filter((file => path.extname(file) === '.md'));
  };
- 
+
 // console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba').filter((file => path.extname(file) === '.md')))
 
 //Función que extrae los links de mis archivos .md

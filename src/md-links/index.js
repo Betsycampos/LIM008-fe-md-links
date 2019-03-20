@@ -1,5 +1,5 @@
 import {checkIfRouteIsAbsolute, transformRelativePath} from './utils/path.js';
-import {fileReturnMd, extractLinks} from './utils/links.js';
+import {fileMd, extractLinks} from './utils/links.js';
 import {validateLinks} from './utils/validate.js';
 // lo que tengo que considerar en esta función es
 // ver si mi ruta es absoluta, funcion recursiva
@@ -12,7 +12,7 @@ export const mdLinks = (path, options) => {
     if (checkIfRouteIsAbsolute(path)) {
       newPath = transformRelativePath(path);  
     }
-    const routeRecv = fileReturnMd(newPath); 
+    const routeRecv = fileMd(newPath); 
     const extractLink = extractLinks(routeRecv); 
     if (options.validate) {
       validateLinks(extractLink)
