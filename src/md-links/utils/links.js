@@ -18,7 +18,7 @@ export const checkIfIsDirectory = (myRoute) => {
 // };
 
 // función de recursión
-export const fileReturnMd = (myRoute) => {
+export const fileReturn = (myRoute) => {
     let collectionArrayPath = [];
     if (checkIfIsFile(myRoute)){
         collectionArrayPath.push(myRoute);
@@ -26,18 +26,15 @@ export const fileReturnMd = (myRoute) => {
     const files =  fs.readdirSync(myRoute);//lee el directorio de la ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
-            collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
+            collectionArrayPath = collectionArrayPath.concat(fileReturn(newRoute))
     });
-  }
+  };
     return collectionArrayPath;
 };
 
-// console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
-// export const fileMd = (newRoute) => {
-// //     const filesMd = newRoute.filter((file => path.extname(file) === '.md'));
-// // console.log('gooooooo' + filesMd);
-// }
-
+ export const fileMd = (myRoute) => {
+    return fileReturn(myRoute).filter((file => path.extname(file) === '.md'));
+ };
 
 // console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba').filter((file => path.extname(file) === '.md')))
 
