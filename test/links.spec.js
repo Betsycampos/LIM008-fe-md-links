@@ -14,6 +14,12 @@ const arrObjtLinks = [
   file:
   path.resolve('./prueba/readme.md')} 
 ];
+const arrObjtLinks1 = [
+  path.resolve('./prueba/app.js'),
+  path.resolve('./prueba/interno/index.html'),
+  path.resolve('./prueba/interno/gitread.md'),
+  path.resolve('./prueba/readme.md')
+]
 describe('checkIfIsFile', () => {
     it('Debería ser una función', () => {
       expect(typeof checkIfIsFile).toBe('function');
@@ -43,8 +49,7 @@ describe('fileReturnMd', () => {
   //     expect(fileReturnMd(path.resolve('./prueba/readme.md'))).toEqual([path.resolve('./prueba/readme.md')]);
   // });
     it('debería mostrar el array de strings de los archivos .md', () => {
-        expect(fileReturnMd(path.resolve('./prueba'))).toEqual([path.resolve('./prueba/interno/'),
-        path.resolve('./prueba/readme.md')]);
+        expect(fileReturnMd(path.resolve('./prueba'))).toEqual(arrObjtLinks1);
     });
 });
 
