@@ -13,28 +13,33 @@ export const checkIfIsDirectory = (myRoute) => {
 }
 
 // seleccionando rutas que tengan archivos .md
-export const fileMd = (myRoute) => {
-   return path.extname(myRoute) === '.md';
-};
+// export const fileMd = (myRoute) => {
+//    return path.extname(myRoute) === '.md';
+// };
 
 // función de recursión
 export const fileReturnMd = (myRoute) => {
     let collectionArrayPath = [];
-    if (fs.statSync(myRoute).isDirectory() === false && path.extname(myRoute) === '.md') {
+    if (checkIfIsFile(myRoute)){
         collectionArrayPath.push(myRoute);
       } else {
     const files =  fs.readdirSync(myRoute);//lee el directorio de la ruta
     files.forEach(file => {
         let newRoute = path.join(myRoute, file);
-        if(checkIfIsDirectory(newRoute)){
             collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
-        } else if(checkIfIsFile(newRoute) && fileMd(newRoute) ){
-            collectionArrayPath.push(newRoute);
-        }
     });
   }
     return collectionArrayPath;
 };
+
+// console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
+// export const fileMd = (newRoute) => {
+// //     const filesMd = newRoute.filter((file => path.extname(file) === '.md'));
+// // console.log('gooooooo' + filesMd);
+// }
+
+
+// console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba').filter((file => path.extname(file) === '.md')))
 
 //Función que extrae los links de mis archivos .md
 
