@@ -1,4 +1,4 @@
-import {checkIfIsFile, checkIfIsDirectory, fileReturnMd, extractLinks} from '../src/md-links/utils/links.js';
+import {checkIfIsFile, checkIfIsDirectory, fileReturnMd, fileMd, extractLinks} from '../src/md-links/utils/links.js';
 const path = require('path');
 const arrObjtLinks = [ 
 { href: 'https://es.wikipedia.org/wiki/Markdown',
@@ -17,9 +17,13 @@ const arrObjtLinks = [
 const arrObjtLinks1 = [
   path.resolve('./prueba/app.js'),
   path.resolve('./prueba/interno/index.html'),
-  path.resolve('./prueba/interno/gitread.md'),
+  path.resolve('./prueba/interno/read.md'),
   path.resolve('./prueba/readme.md')
-]
+];
+const arrObjtLinks2 = [
+  path.resolve('./prueba/interno/read.md'),
+  path.resolve('./prueba/readme.md')
+];
 describe('checkIfIsFile', () => {
     it('Debería ser una función', () => {
       expect(typeof checkIfIsFile).toBe('function');
@@ -45,11 +49,20 @@ describe('fileReturnMd', () => {
     it('debería retornar un array de strings', () => {
         expect(typeof fileReturnMd('./prueba')).toBe('object')
     });
-  //   it('debería mostrar el array de strings de los archivos .md', () => {
-  //     expect(fileReturnMd(path.resolve('./prueba/readme.md'))).toEqual([path.resolve('./prueba/readme.md')]);
-  // });
-    it('debería mostrar el array de strings de los archivos .md', () => {
+    it('debería mostrar el array de strings de los archivos', () => {
         expect(fileReturnMd(path.resolve('./prueba'))).toEqual(arrObjtLinks1);
+    });
+});
+
+describe('fileMd', () => {
+  it('Debería ser una función', () => {
+    expect(typeof fileMd).toBe('function');
+  });
+    it('debería retornar un array de strings', () => {
+        expect(typeof fileMd('./prueba')).toBe('object')
+    });
+    it('debería mostrar el array de strings de los archivos .md', () => {
+        expect(fileMd(path.resolve('./prueba'))).toEqual(arrObjtLinks2);
     });
 });
 

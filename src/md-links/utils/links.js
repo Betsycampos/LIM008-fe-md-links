@@ -28,17 +28,14 @@ export const fileReturnMd = (myRoute) => {
         let newRoute = path.join(myRoute, file);
             collectionArrayPath = collectionArrayPath.concat(fileReturnMd(newRoute))
     });
-  }
+  };
     return collectionArrayPath;
 };
 
-// console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba'));
-// export const fileMd = (newRoute) => {
-// //     const filesMd = newRoute.filter((file => path.extname(file) === '.md'));
-// // console.log('gooooooo' + filesMd);
-// }
-
-
+ export const fileMd = (myRoute) => {
+    return fileReturnMd(myRoute).filter((file => path.extname(file) === '.md'));
+ };
+ 
 // console.log(fileReturnMd('C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba').filter((file => path.extname(file) === '.md')))
 
 //Función que extrae los links de mis archivos .md
