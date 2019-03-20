@@ -6,11 +6,11 @@ import {linksUnique, totalStast, brokenStats} from './md-links/utils/stats.js';
 const options = {
   validate: false,
 };  
-
 const path = process.argv[2];
 const options1 = process.argv[3];
 const options2 = process.argv[4];
 
+const cliFunction = () => {
 if ((options1 === '--stats' && options2 === '--validate')
 || (options1 === '--validate' && options2 === '--stats' )) {
     options.validate = true;
@@ -31,4 +31,6 @@ if ((options1 === '--stats' && options2 === '--validate')
   mdLinks(path, options)
     .then(resp => resp.forEach(objectReturn => { console.log(objectReturn.file, objectReturn.href, objectReturn.text)}))
     .catch(err => console.log(err));
+}
+return cliFunction()
 }

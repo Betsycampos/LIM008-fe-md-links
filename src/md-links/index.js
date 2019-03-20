@@ -9,7 +9,7 @@ import {validateLinks} from './utils/validate.js';
 export const mdLinks = (path, options) => {
   let newPath = path;
   return new Promise((resolve) => {
-    if (checkIfRouteIsAbsolute(path)) {
+    if (!checkIfRouteIsAbsolute(path)) {
       newPath = transformRelativePath(path);  
     }
     const routeRecv = fileMd(newPath); 

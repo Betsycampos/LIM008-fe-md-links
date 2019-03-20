@@ -51,4 +51,19 @@ describe('mdLinks', () => {
         done();
       });
   }); 
+    // it('Debería retornar true si la ruta es absoluta', () => {
+    //   expect(mdLinks(paths.resolve('./src/md-links/index.js'))).toBe(true);
+    // });
+    it('Debería retornar un array de objetos con las propiedades href, text y file a partir de una ruta relativa', (done) => {
+      mdLinks('./prueba', options)
+        .then((resolve) => {
+          expect(resolve).toEqual(arrObjtLinks);
+          done();
+        });
+    }); 
+  
+//     it('Debería retornar una absoluta', () => {
+//       expect(mdLinks()).toBe(arrObjtLinks);
+//     })
+  
 });
