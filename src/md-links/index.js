@@ -5,13 +5,9 @@ import {validateLinks} from './utils/validate.js';
 // ver si mi ruta es absoluta, funcion recursiva
 // extraer links
 // validar
-const options = {
-  validate: false,
-};
-
 export const mdLinks = (path, options) => {
   let newPath = path;
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     if (checkIfRouteIsAbsolute(path) === false) {
       newPath = transformRelativePath(path);  
     }
@@ -20,7 +16,6 @@ export const mdLinks = (path, options) => {
     if (options.validate) {
       validateLinks(extractLink)
         .then(response => resolve(response))
-        .catch(err => resolve(err));
     } else {
       resolve(extractLink);
     }

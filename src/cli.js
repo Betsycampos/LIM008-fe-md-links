@@ -11,7 +11,8 @@ const path = process.argv[2];
 const options1 = process.argv[3];
 const options2 = process.argv[4];
 
-if (options1 === '--stats' && options2 === '--validate') {
+if (options1 === '--stats' && options2 === '--validate'
+|| options2 === '--validate' && options1 === '--stats') {
     options.validate = true;
   mdLinks(path, options)
     .then(resp => console.log(`Total: ${totalStast(resp)} \nUnique: ${linksUnique(resp)} \nBroken: ${brokenStats(resp)}`))
