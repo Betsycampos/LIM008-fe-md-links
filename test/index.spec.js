@@ -1,6 +1,6 @@
 import { mdLinks } from '../src/md-links/index.js';
-const path = 'C:\\Users\\Laboratoria\\Documents\\Markdown-Links\\LIM008-fe-md-links\\prueba';
 const paths = require('path');
+const path = paths.resolve('./prueba');
 const options = {
   validate: false,
 };
